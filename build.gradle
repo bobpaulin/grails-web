@@ -30,7 +30,6 @@ for(currentUserProperty in userProperties.stringPropertyNames())
 	project.ext.set(currentUserProperty, userProperties.getProperty(currentUserProperty))
 }
 
-
 //Configurations
 buildscript {
 	repositories {
@@ -42,7 +41,7 @@ buildscript {
 	dependencies {
 		classpath "org.gradle.api.plugins:gradle-cargo-plugin:0.6.1",
 					"org.grails:grails-gradle-plugin:2.0.0-SNAPSHOT",
-					"org.grails:grails-bootstrap:2.0.0"
+					"org.grails:grails-bootstrap:2.0.0",
 					"com.github.townsfolk:gradle-release:1.2"
 	}
 }
