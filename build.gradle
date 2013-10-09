@@ -3,13 +3,12 @@ apply plugin: 'jetty'
 apply plugin: 'cargo'
 apply plugin: 'maven'
 apply plugin: 'grails'
-apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
+apply plugin: 'release'
 
 
 //Initialization
 sourceCompatibility = 1.6
-group = "com.bobpaulin.gradle"
-def artifactId = "grails-web"
+def artifactId = project.name
 def artifactDownloadPath = "target/" + artifactId + ".war"
 def userName = System.getProperty("user.name")
 def gradlePropsFile = project.file(userName + ".properties")
@@ -37,12 +36,14 @@ buildscript {
 	repositories {
 		mavenCentral()
 		maven{ url "http://repo.grails.org/grails/core/" }
+		maven { url "https://oss.sonatype.org/content/groups/public"}
 	}
 
 	dependencies {
-		classpath 'org.gradle.api.plugins:gradle-cargo-plugin:0.6.1',
+		classpath "org.gradle.api.plugins:gradle-cargo-plugin:0.6.1",
 					"org.grails:grails-gradle-plugin:2.0.0-SNAPSHOT",
 					"org.grails:grails-bootstrap:2.0.0"
+					"com.github.townsfolk:gradle-release:1.2"
 	}
 }
 
